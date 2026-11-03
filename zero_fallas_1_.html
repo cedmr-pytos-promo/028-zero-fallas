@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Fallas - 1º BATIN | Diagnóstico Informático</title>
+    <!-- Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            800: '#1e3a8a',
+                            900: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fuente Inter de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navegación Fija -->
+    <header class="sticky top-0 z-50 bg-brand-900/95 backdrop-blur-md text-white shadow-lg border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logotipo / Identificación -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-cyan-400 flex items-center justify-center text-white shadow-md font-bold text-xl">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-lg sm:text-xl tracking-tight block leading-tight">Zero Fallas</span>
+                        <span class="text-xs text-brand-100/70 font-medium block">1º BATIN — C.E.D.M. Miguela Rodríguez Araujo</span>
+                    </div>
+                </div>
+
+                <!-- Menú de Navegación Escritorio -->
+                <nav class="hidden md:flex space-x-1 lg:space-x-2">
+                    <a href="#inicio" class="px-4 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:text-white hover:bg-brand-800/60 transition-all duration-200 flex items-center gap-2">
+                        <i class="fa-solid fa-house text-xs text-brand-500"></i> Inicio
+                    </a>
+                    <a href="#proyecto" class="px-4 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:text-white hover:bg-brand-800/60 transition-all duration-200 flex items-center gap-2">
+                        <i class="fa-solid fa-diagram-project text-xs text-brand-500"></i> Sobre el Proyecto
+                    </a>
+                    <a href="#equipo" class="px-4 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:text-white hover:bg-brand-800/60 transition-all duration-200 flex items-center gap-2">
+                        <i class="fa-solid fa-users text-xs text-brand-500"></i> Equipo
+                    </a>
+                </nav>
+
+                <!-- Botón Menú Móvil -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-brand-800 focus:outline-none" aria-label="Abrir menú">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-900 border-b border-slate-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="#inicio" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-brand-800 hover:text-white">
+                <i class="fa-solid fa-house mr-2 text-brand-500"></i> Inicio
+            </a>
+            <a href="#proyecto" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-brand-800 hover:text-white">
+                <i class="fa-solid fa-diagram-project mr-2 text-brand-500"></i> Sobre el Proyecto
+            </a>
+            <a href="#equipo" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-brand-800 hover:text-white">
+                <i class="fa-solid fa-users mr-2 text-brand-500"></i> Equipo
+            </a>
+        </div>
+    </header>
+
+    <main class="space-y-16 pb-16">
+
+        <!-- ================= SECCIÓN 1: INICIO ================= -->
+        <section id="inicio" class="scroll-mt-24">
+            <!-- Hero Banner -->
+            <div class="relative overflow-hidden bg-gradient-to-b from-brand-900 via-brand-800 to-slate-900 text-white pt-12 pb-20 px-4 sm:px-6 lg:px-8 shadow-inner">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                
+                <div class="max-w-5xl mx-auto relative z-10 text-center space-y-6">
+                    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-500/20 text-cyan-300 border border-cyan-500/30">
+                        <i class="fa-solid fa-graduation-cap"></i> Bachillerato Técnico en Informática
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
+                        Bienvenidos
+                    </h1>
+                    <div class="max-w-4xl mx-auto bg-slate-800/60 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-slate-700/60 text-slate-200 text-base sm:text-lg leading-relaxed text-left shadow-2xl">
+                        <p class="mb-4">
+                            Somos un equipo de estudiantes del <strong>1º BATIN del Centro Educativo Departamental Municipal Miguela Rodríguez Araujo</strong>. Este proyecto nace con un objetivo claro: ofrecer a toda la comunidad educativa y a sus familias una herramienta digital accesible e intuitiva para el diagnóstico y resolución de fallas comunes en computadoras (software y hardware).
+                        </p>
+                        <p>
+                            Hoy en día, la falta de conocimientos técnicos básicos o de una guía clara obliga a depender de servicios técnicos costosos o a perder tiempo por averías sencillas que podrían solucionarse en casa o en la institución. Queremos cambiar eso.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ¿Qué buscamos? y Nuestro compromiso -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-12">
+                <!-- Objetivos -->
+                <div>
+                    <div class="text-center mb-10">
+                        <h2 class="text-3xl font-bold text-brand-900 tracking-tight">¿Qué buscamos?</h2>
+                        <div class="w-16 h-1 bg-brand-500 mx-auto mt-2 rounded-full"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Card 1 -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0 font-bold text-xl border border-brand-100">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900 mb-2">Guiar el diagnóstico de forma sencilla</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Proveer un asistente interactivo (árbol de decisión) que ayude a identificar de manera lógica el origen del problema.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0 font-bold text-xl border border-brand-100">
+                                <i class="fa-solid fa-list-check"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900 mb-2">Ofrecer soluciones claras y clasificadas</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Disponer de un catálogo ordenado de fallas de hardware y software con procedimientos paso a paso.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0 font-bold text-xl border border-brand-100">
+                                <i class="fa-solid fa-user-graduate"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900 mb-2">Fomentar el autoaprendizaje</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Capacitar a estudiantes, docentes y familias para solucionar problemas menores por sí mismos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0 font-bold text-xl border border-brand-100">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900 mb-2">Promover el mantenimiento preventivo</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Brindar recomendaciones prácticas para alargar la vida útil de las computadoras.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nuestro Compromiso -->
+                <div class="bg-gradient-to-r from-brand-800 to-brand-900 rounded-2xl p-8 text-white shadow-xl relative overflow-hidden">
+                    <div class="absolute right-0 top-0 translate-x-8 -translate-y-8 opacity-10 text-9xl text-white">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <div class="relative z-10 max-w-3xl">
+                        <div class="inline-flex items-center gap-2 text-cyan-400 font-bold text-sm tracking-wider uppercase mb-2">
+                            <i class="fa-solid fa-heart"></i> Misión Social
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold mb-4">Nuestro compromiso</h3>
+                        <p class="text-slate-200 text-base sm:text-lg leading-relaxed">
+                            Toda la información y guías publicadas en la plataforma se comparten de forma gratuita, clara y sin recolección de datos personales. Optimizamos tiempo, dinero y esfuerzo para que cualquier integrante de nuestra comunidad pueda mantener sus equipos en correcto funcionamiento.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECCIÓN 2: SOBRE EL PROYECTO ================= -->
+        <section id="proyecto" class="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Proyecto</h2>
+                <div class="w-20 h-1 bg-brand-500 mx-auto mt-2 rounded-full"></div>
+            </div>
+
+            <!-- Bloques Fundamentales -->
+            <div class="space-y-6 mb-12">
+                <!-- El Problema -->
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border-l-4 border-red-500 border-y border-r border-slate-200 shadow-sm hover:shadow-md transition-all">
+                    <div class="flex items-center gap-3 text-red-600 font-bold text-lg mb-2">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <h3>El problema</h3>
+                    </div>
+                    <p class="text-slate-700 leading-relaxed">
+                        La comunidad educativa no cuentan con una herramienta accesible ni con conocimientos técnicos básicos para identificar y resolver fallas comunes en computadoras (como lentitud o pantallas negras). Esta carencia genera interrupciones en las actividades académicas, pérdida de tiempo y gastos innecesarios en servicios técnicos por averías menores.
+                    </p>
+                </div>
+
+                <!-- La Propuesta -->
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border-l-4 border-brand-500 border-y border-r border-slate-200 shadow-sm hover:shadow-md transition-all">
+                    <div class="flex items-center gap-3 text-brand-600 font-bold text-lg mb-2">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <h3>La propuesta</h3>
+                    </div>
+                    <p class="text-slate-700 leading-relaxed">
+                        Crear un sitio web interactivo de diagnóstico de fallas informáticas que sirva como una guía paso a paso y funcione como espacio de seguimiento durante los tres años del bachillerato, documentando la evolución del proyecto desde el anteproyecto hasta el sistema final.
+                    </p>
+                </div>
+
+                <!-- Alcance en esta etapa -->
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border-l-4 border-amber-500 border-y border-r border-slate-200 shadow-sm hover:shadow-md transition-all">
+                    <div class="flex items-center gap-3 text-amber-600 font-bold text-lg mb-2">
+                        <i class="fa-solid fa-bullseye"></i>
+                        <h3>Alcance en esta etapa</h3>
+                    </div>
+                    <p class="text-slate-700 leading-relaxed">
+                        En esta primera etapa, el alcance se limita estrictamente a la definición conceptual del problema, su propuesta de solución, el estudio de viabilidad, la redacción del anteproyecto escrito, la creación de un sitio web de seguimiento y la presentación de lanzamiento. No incluye, en esta fase, el desarrollo de código funcional del sistema o prototipo, la conexión a bases de datos u operaciones reales sobre datos de usuarios (estas etapas corresponden al 2º y 3º curso, conforme al ciclo institucional del Proyecto de Promoción).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Viabilidad -->
+            <div>
+                <h3 class="text-2xl font-bold text-brand-900 mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-brand-500"></i> Viabilidad
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Técnica -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-brand-500/50 transition-all">
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <h4 class="font-bold text-lg text-slate-900 mb-2">Técnica</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Contamos con el entorno de desarrollo y los conocimientos básicos de HTML, CSS y ofimática necesarios para esta primera etapa.
+                        </p>
+                    </div>
+
+                    <!-- Legal -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-brand-500/50 transition-all">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <h4 class="font-bold text-lg text-slate-900 mb-2">Legal</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Usamos solo software libre, licencias Creative Commons y respetamos la política institucional de uso responsable de internet, sin recolectar datos personales sensibles.
+                        </p>
+                    </div>
+
+                    <!-- Económica -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-brand-500/50 transition-all">
+                        <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-coins"></i>
+                        </div>
+                        <h4 class="font-bold text-lg text-slate-900 mb-2">Económica</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            El costo es prácticamente nulo, ya que se desarrolla con herramientas de código abierto, plataformas de alojamiento gratuito y equipos ya disponibles en la institución y en los hogares del equipo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECCIÓN 3: EQUIPO ================= -->
+        <section id="equipo" class="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Equipo</h2>
+                <div class="w-20 h-1 bg-brand-500 mx-auto mt-2 rounded-full"></div>
+            </div>
+
+            <!-- Introducción del Equipo -->
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm mb-10">
+                <p class="text-slate-700 leading-relaxed text-base sm:text-lg">
+                    El desarrollo del proyecto está a cargo de un equipo colaborativo integrado por tres estudiantes del <strong>1º BATIN del Centro Educativo Departamental Municipal Miguela Rodríguez Araujo</strong>. Si bien cada integrante asume la responsabilidad principal de un área técnica, todas participan en la recolección de información, redacción de contenidos y revisión final de cada entregable:
+                </p>
+            </div>
+
+            <!-- Integrantes Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- Saddy -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col">
+                    <div class="bg-gradient-to-r from-brand-800 to-brand-900 p-6 text-white text-center">
+                        <div class="w-20 h-20 rounded-full bg-white/10 mx-auto flex items-center justify-center text-3xl font-bold border-2 border-cyan-400 mb-3">
+                            <i class="fa-solid fa-palette text-cyan-300"></i>
+                        </div>
+                        <h3 class="font-bold text-xl leading-snug">Saddy Monserrath Cubillas Duarte</h3>
+                        <span class="inline-block mt-2 px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold uppercase tracking-wider border border-cyan-400/30">
+                            Diseño & CSS
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 bg-slate-50/50">
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Responsable de la maquetación y diseño visual de la plataforma, definiendo la estructura de las páginas, la paleta de colores y los estilos en CSS.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Juan -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col">
+                    <div class="bg-gradient-to-r from-brand-800 to-brand-900 p-6 text-white text-center">
+                        <div class="w-20 h-20 rounded-full bg-white/10 mx-auto flex items-center justify-center text-3xl font-bold border-2 border-cyan-400 mb-3">
+                            <i class="fa-solid fa-folder-open text-cyan-300"></i>
+                        </div>
+                        <h3 class="font-bold text-xl leading-snug">Juan Ángel Portillo Gaona</h3>
+                        <span class="inline-block mt-2 px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold uppercase tracking-wider border border-cyan-400/30">
+                            Contenidos Técnicos
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 bg-slate-50/50">
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Encargada de la organización y carga de contenidos técnicos, la revisión de textos explicativos y la preparación de los recursos multimedia (imágenes, diagramas y enlaces) para el catálogo de fallas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mariam -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col">
+                    <div class="bg-gradient-to-r from-brand-800 to-brand-900 p-6 text-white text-center">
+                        <div class="w-20 h-20 rounded-full bg-white/10 mx-auto flex items-center justify-center text-3xl font-bold border-2 border-cyan-400 mb-3">
+                            <i class="fa-solid fa-user-gear text-cyan-300"></i>
+                        </div>
+                        <h3 class="font-bold text-xl leading-snug">Mariam Lisette Allende Maidana</h3>
+                        <span class="inline-block mt-2 px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold uppercase tracking-wider border border-cyan-400/30">
+                            Coordinación General
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 bg-slate-50/50">
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Responsable de la coordinación general del proyecto, la integración de los componentes visuales y de contenido, y la dirección del ensayo para la presentación final.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metodología de Trabajo -->
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm mb-12">
+                <h3 class="text-xl font-bold text-brand-900 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-list-check text-brand-500"></i> Metodología de Trabajo
+                </h3>
+                <p class="text-slate-700 leading-relaxed">
+                    El equipo organiza sus actividades a través de una carpeta compartida en Google Drive, donde se centralizan la documentación del anteproyecto, las capturas de avance y los recursos digitales. Las tareas se gestionan mediante un tablero Kanban simple (Por hacer / En proceso / Terminado), el cual se revisa y actualiza en reuniones semanales de coordinación para asegurar el cumplimiento de las metas en tiempo y forma. Adicionalmente, se utiliza el historial de versiones de Google Drive como mecanismo de control para proteger y recuperar información ante cualquier eventualidad o error.
+                </p>
+            </div>
+
+            <!-- Plan a 3 años -->
+            <div class="bg-gradient-to-br from-slate-900 to-brand-900 text-white p-6 sm:p-8 rounded-2xl shadow-xl">
+                <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                    <i class="fa-solid fa-calendar-days text-cyan-400"></i> Plan a 3 años:
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+                    <!-- Paso 1 -->
+                    <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 relative">
+                        <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">Paso 1</div>
+                        <h4 class="font-bold text-lg text-white mb-2">1º año (actual)</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Anteproyecto, estudio de viabilidad, sitio web de seguimiento y presentación de lanzamiento.
+                        </p>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 relative">
+                        <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">Paso 2</div>
+                        <h4 class="font-bold text-lg text-white mb-2">2º año</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Desarrollo del prototipo funcional, estructuración de las guías de hardware/software y actualización del sitio con evidencias.
+                        </p>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 relative">
+                        <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">Paso 3</div>
+                        <h4 class="font-bold text-lg text-white mb-2">3º año</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Sistema web interactivo final, documentación técnica completa y defensa del proyecto.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de Página Institucional -->
+    <footer class="bg-brand-900 text-slate-400 py-8 border-t border-slate-800 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-4 space-y-3">
+            <p class="font-semibold text-slate-300">
+                &copy; Zero Fallas — 1º BATIN | Centro Educativo Departamental Municipal Miguela Rodríguez Araujo
+            </p>
+            <p class="text-xs text-slate-500">
+                Proyecto de Promoción Educativa e Innovación Digital
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script Menú Móvil -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMenu);
+    </script>
+</body>
+</html>
